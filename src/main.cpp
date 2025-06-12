@@ -17,7 +17,7 @@ void sendHttpRequest(const String& url)
   HTTPClient http;
   http.begin(url);  // Inicjalizacja połączenia
   http.addHeader("Content-Type", "application/json");
-  int httpResponseCode = http.POST("{\"Status\": \"ON\", \"Time\": \"100\"}");
+  int httpResponseCode = http.POST("{\"Status\": \"ON\", \"Time\": \"60\"}");
 
   if (httpResponseCode > 0) 
   {
@@ -55,10 +55,8 @@ void setup()
 void onDoorOpened() 
 {
   Serial.println("Drzwi otwarte!");
-  sendHttpRequest("http://172.20.10.3:8898/TurnCameraON");
-  //sendHttpRequest("http://192.168.86.101:8898/TurnCameraON");
-  //sendHttpRequest("http://10.42.0.1:8898/TurnCameraON");
-  // Tu możesz dodać dowolną funkcję, np. wysyłanie powiadomienia
+  sendHttpRequest("http://172.20.10.2:8898/TurnCameraON");
+
 }
 
 void onDoorClosed() 
